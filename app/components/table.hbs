@@ -1,15 +1,15 @@
 <table id="table">
-    {{#each this.rows as |rowIndex|}}
-        <tr>
-            {{#each this.columns as |columnIndex|}}
-                <td 
-                    class={{if (and @robotPlaced (eq rowIndex @robotRow) (eq columnIndex @robotColumn)) this.robotClass}}
-                    {{on 'click' (fn @setRobotPosition columnIndex rowIndex)}}
-                >
-                </td>
-            {{/each}}
-        </tr>
-    {{/each}}
+  {{#each this.rows as |rowIndex|}}
+    <tr>
+      {{#each this.columns as |columnIndex|}}
+        <td 
+          class={{if (and @robotPlaced (eq rowIndex @robotRow) (eq columnIndex @robotColumn)) this.robotClass}}
+          {{on 'click' (fn @setRobotPosition columnIndex rowIndex)}}
+        >
+        </td>
+      {{/each}}
+    </tr>
+  {{/each}}
 </table>
 
 {{yield}}
