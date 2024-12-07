@@ -1,0 +1,10 @@
+<div id="controls">
+    <div id="movement-controls">
+        <Button @id="left" @name="Left" @class="blue" @clickHandler={{fn this.turnRobot 'left'}} />
+        <Button @id="move" @name="Move" @class="blue" @clickHandler={{this.moveRobot}} />
+        <Button @id="right" @name="Right" @class="blue" @clickHandler={{fn this.turnRobot 'right'}} />
+    </div>
+    <div id="report-control">
+        <Button @id="report" @name="Report" @class="grey" @clickHandler={{this.printReport}} />
+    </div>
+</div>

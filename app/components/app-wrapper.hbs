@@ -1,0 +1,19 @@
+<div id="wrapper" {{key-input this.handleKeyInput}}>
+    <Instructions />
+    <Table
+        @columnMax={{this.columnMax}}
+        @rowMax={{this.rowMax}}
+        @robotColumn={{this.robotColumn}}
+        @robotRow={{this.robotRow}}
+        @robotDirection={{this.robotDirection}}
+        @setRobotPosition={{this.setRobotPosition}}
+        @robotPlaced={{this.robotPlaced}}
+    />
+    <Controls
+        @setRobotDirection={{this.setRobotDirection}}
+        @robotPlaced={{this.robotPlaced}}
+        @moveRobotForward={{this.moveRobotForward}}
+        @appendReport={{this.appendReport}}
+    />
+    <Report @report={{this.report}} />
+</div>

@@ -1,0 +1,125 @@
+body {
+  background: #1e2527;
+  display: flex;
+  justify-content: center;
+}
+
+#wrapper {
+  display: flex;
+  width: 675px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#instructions {
+  background: #2e3537;
+  padding: 30px 0;
+  border-radius: 10px;
+  margin: 75px 0 50px;
+  width: 100%;
+
+  p {
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 600;
+    font-family: Arial, sans-serif;
+    letter-spacing: 0.1px;
+    text-align: center;
+    margin: 0;
+  }
+}
+
+#table {
+  border-spacing: 0;
+  margin: 0 0 50px 0;
+  td {
+    background: #293538;
+    height: 135px;
+    width: 135px;
+    border: 1px solid #6d6d6d;
+    cursor: pointer;
+    padding: 0;
+    box-sizing: border-box;
+    &:hover {
+      background: #1f282b;
+    }
+    &.robot {
+      &.north {
+        background: url("/assets/images/robot-north.png") no-repeat center
+          center;
+      }
+      &.east {
+        background: url("/assets/images/robot-east.png") no-repeat center center;
+      }
+      &.south {
+        background: url("/assets/images/robot-south.png") no-repeat center
+          center;
+      }
+      &.west {
+        background: url("/assets/images/robot-west.png") no-repeat center center;
+      }
+    }
+  }
+}
+
+#controls {
+  width: 100%;
+  #movement-controls {
+    margin: 0 0 50px 0;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  #report-control {
+    margin: 0 0 50px 0;
+    display: flex;
+    justify-content: center;
+  }
+  button {
+    font-size: 1.3rem;
+    font-weight: 600;
+    font-family: Arial, sans-serif;
+    padding: 10px 0;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px #121618;
+  }
+  .blue {
+    width: 120px;
+    color: #293538;
+    background: #1b7a8f;
+    background: linear-gradient(
+      90deg,
+      rgba(27, 122, 143, 1) 0%,
+      rgba(58, 186, 183, 1) 100%
+    );
+    &:hover {
+      background: #166475;
+      background: linear-gradient(
+        90deg,
+        rgba(20, 92, 107, 1) 0%,
+        rgba(44, 143, 141, 1) 100%
+      );
+    }
+  }
+  .grey {
+    width: 215px;
+    color: #ffffff;
+    background: #293538;
+    border: 2px solid #1b7a8f;
+    &:hover {
+      background: #202a2c;
+    }
+  }
+}
+
+#report {
+  li {
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 600;
+    font-family: Arial, sans-serif;
+    line-height: 1.8rem;
+  }
+}
