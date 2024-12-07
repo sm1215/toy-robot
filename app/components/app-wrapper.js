@@ -3,9 +3,13 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 export default class AppWrapperComponent extends Component {
+  // This controls the size of the table and informs the robot
+  // of valid boundaries while moving
   columnMax = 5;
   rowMax = 5;
 
+  // Mapping of directions relating to numerical values
+  // allows us to complete a full circle while turning
   turnDirections = {
     north: 0,
     east: 1,
@@ -13,6 +17,8 @@ export default class AppWrapperComponent extends Component {
     west: 3,
   };
 
+  // Mapping of directions and their corresponding numerical
+  // modifiers needed in order to apply them to a given axis
   moveDirections = {
     north: {
       axis: 'row',
@@ -32,10 +38,15 @@ export default class AppWrapperComponent extends Component {
     },
   };
 
+  // The robot's current Y position
   @tracked robotColumn = 0;
+
+  // The robot's current X position
   @tracked robotRow = 0;
   @tracked robotDirection = 'south';
+  // The robot must be placed before any controls will respond
   @tracked robotPlaced = false;
+  // Holds the history of all positions reported by the robot
   @tracked report = [];
 
   @action
@@ -46,12 +57,13 @@ export default class AppWrapperComponent extends Component {
   }
 
   @action
+  // turnDirection is expected to be a string of 'left' | 'right'
   setRobotDirection(turnDirection) {
     const directionModifier = turnDirection === 'left' ? -1 : 1;
     let adjustedDirection =
       this.turnDirections[this.robotDirection] + directionModifier;
 
-    // make the rotation circular when exceeding the bounds implied by this.directions
+    // make the rotation circular when exceeding the bounds implied by `this.directions`
     if (adjustedDirection < this.turnDirections.north) {
       adjustedDirection = this.turnDirections.west;
     } else if (adjustedDirection > this.turnDirections.west) {
@@ -87,6 +99,7 @@ export default class AppWrapperComponent extends Component {
   }
 
   @action
+  // key is expected to be a string of 'left' | 'up' | 'right'
   handleKeyInput(key) {
     if (!this.robotPlaced) {
       return;
@@ -100,7 +113,7 @@ export default class AppWrapperComponent extends Component {
     }
   }
 
-  // helper function to make things more readable
+  // helper function to make the direction more readable in the report
   capitalizeFirstLetter(val) {
     return String(val).charAt(0).toUpperCase() + String(val).slice(1);
   }
