@@ -1,17 +1,17 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 
-module('Unit | Component | app-wrapper', function (hooks) {
+module('Unit | Component | app-controller', function (hooks) {
   setupTest(hooks);
 
   test("sets the robot's position", async function (assert) {
-    const { class: AppWrapperComponentClass } = this.owner.factoryFor(
-      'component:app-wrapper',
+    const { class: AppControllerComponentClass } = this.owner.factoryFor(
+      'component:app-controller',
     );
     const componentManager = this.owner.lookup('component-manager:glimmer');
 
-    const appWrapperComponent = componentManager.createComponent(
-      AppWrapperComponentClass,
+    const appControllerComponent = componentManager.createComponent(
+      AppControllerComponentClass,
       {
         named: {
           robotColumn: 0,
@@ -20,39 +20,39 @@ module('Unit | Component | app-wrapper', function (hooks) {
       },
     );
 
-    appWrapperComponent.setRobotPosition(2, 3);
-    assert.equal(appWrapperComponent.robotColumn, 2);
-    assert.equal(appWrapperComponent.robotRow, 3);
+    appControllerComponent.setRobotPosition(2, 3);
+    assert.equal(appControllerComponent.robotColumn, 2);
+    assert.equal(appControllerComponent.robotRow, 3);
   }),
     test("sets the robot's direction", async function (assert) {
-      const { class: AppWrapperComponentClass } = this.owner.factoryFor(
-        'component:app-wrapper',
+      const { class: AppControllerComponentClass } = this.owner.factoryFor(
+        'component:app-controller',
       );
       const componentManager = this.owner.lookup('component-manager:glimmer');
 
-      const appWrapperComponent = componentManager.createComponent(
-        AppWrapperComponentClass,
+      const appControllerComponent = componentManager.createComponent(
+        AppControllerComponentClass,
         {
           named: {
             robotDirection: 'south',
           },
         },
       );
-      // Overriding the default set in the app-wrapper component,
+      // Overriding the default set in the app-controller component,
       // the WeakMap 'named' object above doesn't do the trick and just defaults to the component's initial default
-      appWrapperComponent.robotDirection = 'north';
+      appControllerComponent.robotDirection = 'north';
 
-      appWrapperComponent.setRobotDirection('left');
-      assert.equal(appWrapperComponent.robotDirection, 'west');
+      appControllerComponent.setRobotDirection('left');
+      assert.equal(appControllerComponent.robotDirection, 'west');
     }),
     test('moves the robot forward', async function (assert) {
-      const { class: AppWrapperComponentClass } = this.owner.factoryFor(
-        'component:app-wrapper',
+      const { class: AppControllerComponentClass } = this.owner.factoryFor(
+        'component:app-controller',
       );
       const componentManager = this.owner.lookup('component-manager:glimmer');
 
-      const appWrapperComponent = componentManager.createComponent(
-        AppWrapperComponentClass,
+      const appControllerComponent = componentManager.createComponent(
+        AppControllerComponentClass,
         {
           named: {
             robotColumn: 0,
@@ -61,12 +61,12 @@ module('Unit | Component | app-wrapper', function (hooks) {
           },
         },
       );
-      // Overriding the defaults set in the app-wrapper component,
+      // Overriding the defaults set in the app-controller component,
       // the WeakMap 'named' object above doesn't do the trick and just defaults to the component's initial default
-      appWrapperComponent.robotDirection = 'north';
+      appControllerComponent.robotDirection = 'north';
 
-      appWrapperComponent.moveRobotForward();
-      assert.equal(appWrapperComponent.robotRow, 1);
+      appControllerComponent.moveRobotForward();
+      assert.equal(appControllerComponent.robotRow, 1);
     });
 
   // TODO: Test the robot respects the table boundaries
