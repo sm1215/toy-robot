@@ -20,7 +20,7 @@ body {
   width: 100%;
 
   p {
-    color: #ffffff;
+    color: #fff;
     font-size: 1.3rem;
     font-weight: 600;
     font-family: Arial, sans-serif;
@@ -32,7 +32,8 @@ body {
 
 #table {
   border-spacing: 0;
-  margin: 0 0 50px 0;
+  margin: 0 0 50px;
+
   td {
     background: #293538;
     height: 135px;
@@ -41,21 +42,26 @@ body {
     cursor: pointer;
     padding: 0;
     box-sizing: border-box;
+
     &:hover {
       background: #1f282b;
     }
+
     &.robot {
       &.north {
         background: url("/assets/images/robot-north.png") no-repeat center
           center;
       }
+
       &.east {
         background: url("/assets/images/robot-east.png") no-repeat center center;
       }
+
       &.south {
         background: url("/assets/images/robot-south.png") no-repeat center
           center;
       }
+
       &.west {
         background: url("/assets/images/robot-west.png") no-repeat center center;
       }
@@ -65,16 +71,19 @@ body {
 
 #controls {
   width: 100%;
+
   #movement-controls {
-    margin: 0 0 50px 0;
+    margin: 0 0 50px;
     display: flex;
     justify-content: space-evenly;
   }
+
   #report-control {
-    margin: 0 0 50px 0;
+    margin: 0 0 50px;
     display: flex;
     justify-content: center;
   }
+
   button {
     font-size: 1.3rem;
     font-weight: 600;
@@ -85,29 +94,33 @@ body {
     border-radius: 10px;
     box-shadow: 5px 5px 15px #121618;
   }
+
   .blue {
     width: 120px;
     color: #293538;
     background: #1b7a8f;
     background: linear-gradient(
       90deg,
-      rgba(27, 122, 143, 1) 0%,
-      rgba(58, 186, 183, 1) 100%
+      rgb(27 122 143 / 100%) 0%,
+      rgb(58 186 183 / 100%) 100%
     );
+
     &:hover {
       background: #166475;
       background: linear-gradient(
         90deg,
-        rgba(20, 92, 107, 1) 0%,
-        rgba(44, 143, 141, 1) 100%
+        rgb(20 92 107 / 100%) 0%,
+        rgb(44 143 141 / 100%) 100%
       );
     }
   }
+
   .grey {
     width: 215px;
-    color: #ffffff;
+    color: #fff;
     background: #293538;
     border: 2px solid #1b7a8f;
+
     &:hover {
       background: #202a2c;
     }
@@ -116,7 +129,7 @@ body {
 
 #report {
   li {
-    color: #ffffff;
+    color: #fff;
     font-size: 1.3rem;
     font-weight: 600;
     font-family: Arial, sans-serif;

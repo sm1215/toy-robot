@@ -8,6 +8,8 @@ module('Integration | Component | instructions', function (hooks) {
 
   test('it renders', async function (assert) {
     await render(hbs`<Instructions />`);
-    assert.dom().hasText('Click to place the robot, use the buttons or arrows to move');
+    assert
+      .dom()
+      .hasText('Click to place the robot, use the buttons or arrows to move');
   });
 });

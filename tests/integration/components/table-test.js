@@ -9,7 +9,7 @@ module('Integration | Component | table', function (hooks) {
   test('it renders with the correct columns / rows', async function (assert) {
     this.set('columnMax', 5);
     this.set('rowMax', 5);
-   
+
     await render(hbs`
       <Table
         @columnMax={{this.columnMax}}
